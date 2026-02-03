@@ -7,6 +7,18 @@ local function open_window(window)
 	local padding = string.rep(" ", (window.config.width - #win_text) / 2)
 	local text = padding .. win_text
 	vim.api.nvim_buf_set_lines(window.buff, 0, -1, false, { text })
+	-- vim.keymap.set("n", "j", function()
+	-- 	M.down()
+	-- end, { buffer = window.buff })
+	vim.keymap.set("n", "k", function()
+		M.up()
+	end, { buffer = window.buff })
+	vim.keymap.set("n", "q", function()
+		M.hide()
+	end, { buffer = window.buff })
+	vim.keymap.set("n", "<ESC>", function()
+		M.hide()
+	end, { buffer = window.buff })
 	return w
 end
 
@@ -14,6 +26,10 @@ end
 M.show = function()
 	for key, _ in pairs(config) do
 		config[key].win = open_window(config[key])
+	end
+	local url_win = config.url_field.win
+	if url_win and vim.api.nvim_win_is_valid(url_win) then
+		vim.api.nvim_set_current_win(url_win)
 	end
 end
 
@@ -32,5 +48,14 @@ M.toggle = function()
 		M.show()
 	end
 end
+-- Nav
+M.up = function()
+	-- local current_win = vim.api.nvim_get_current_win()
+	local all_windows = vim.api.nvim_list_wins()
 
+	local url_win = config.url_field.win
+	if url_win and vim.api.nvim_win_is_valid(url_win) then
+		vim.api.nvim_set_current_win(url_win)
+	end
+end
 return M
