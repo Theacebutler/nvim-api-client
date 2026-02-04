@@ -33,6 +33,7 @@ M.show = function()
 	local url_win = config.url_field.win
 	if url_win and vim.api.nvim_win_is_valid(url_win) then
 		vim.api.nvim_set_current_win(url_win)
+		vim.cmd("startinsert")
 	end
 end
 
