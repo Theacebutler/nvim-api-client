@@ -7,6 +7,9 @@ local function open_window(window)
 	local padding = string.rep(" ", (window.config.width - #win_text) / 2)
 	local text = padding .. win_text
 	vim.api.nvim_buf_set_lines(window.buff, 0, -1, false, { text })
+	for opt, value in pairs(window.opts) do
+		vim.api.nvim_set_option_value(opt, value, { buf = window.buff })
+	end
 	-- vim.keymap.set("n", "j", function()
 	-- 	M.down()
 	-- end, { buffer = window.buff })

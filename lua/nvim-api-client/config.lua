@@ -1,5 +1,3 @@
--- local w_10 = math.floor(vim.o.columns * 0.1)
--- local h_10 = math.floor(vim.o.lines * 0.1)
 local width = math.floor(vim.o.columns * 0.8)
 local height = math.floor(vim.o.lines * 0.8)
 local col = math.floor((vim.o.columns - width) / 2)
@@ -9,6 +7,9 @@ local windows = {
 	background_win = {
 		win = nil,
 		buff = nil,
+		opts = {
+			modifiable = false,
+		},
 		config = {
 			border = "rounded",
 			relative = "editor",
@@ -24,6 +25,9 @@ local windows = {
 		win = nil,
 		buff = nil,
 		text = "GET",
+		opts = {
+			modifiable = false,
+		},
 		config = {
 			relative = "editor",
 			border = "rounded",
@@ -38,6 +42,9 @@ local windows = {
 		win = nil,
 		buff = nil,
 		text = "POST",
+		opts = {
+			modifiable = false,
+		},
 		config = {
 			relative = "editor",
 			border = "rounded",
@@ -52,6 +59,9 @@ local windows = {
 		win = nil,
 		buff = nil,
 		text = "PUT",
+		opts = {
+			modifiable = false,
+		},
 		config = {
 			relative = "editor",
 			border = "rounded",
@@ -66,6 +76,9 @@ local windows = {
 		win = nil,
 		buff = nil,
 		text = "DELETE",
+		opts = {
+			modifiable = false,
+		},
 		config = {
 			relative = "editor",
 			border = "rounded",
@@ -79,6 +92,9 @@ local windows = {
 	url = {
 		win = nil,
 		buff = nil,
+		opts = {
+			modifiable = true,
+		},
 		config = {
 			relative = "editor",
 			style = "minimal",
@@ -94,6 +110,9 @@ local windows = {
 		win = nil,
 		buff = nil,
 		text = "METHOD",
+		opts = {
+			modifiable = false,
+		},
 		config = {
 			relative = "editor",
 			style = "minimal",
@@ -109,6 +128,9 @@ local windows = {
 		win = nil,
 		buff = nil,
 		text = "http://",
+		opts = {
+			modifiable = false,
+		},
 		config = {
 			relative = "editor",
 			style = "minimal",
@@ -123,6 +145,9 @@ local windows = {
 	url_field = {
 		win = nil,
 		buff = nil,
+		opts = {
+			modifiable = true,
+		},
 		config = {
 			relative = "editor",
 			style = "minimal",
@@ -136,6 +161,9 @@ local windows = {
 	body = {
 		win = nil,
 		buff = nil,
+		opts = {
+			modifiable = true,
+		},
 		config = {
 			border = "rounded",
 			relative = "editor",
@@ -144,6 +172,7 @@ local windows = {
 			col = col + 1,
 			width = width - 4,
 			height = height - 10,
+			zindex = 3,
 		},
 	},
 }
