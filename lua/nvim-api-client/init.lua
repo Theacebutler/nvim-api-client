@@ -7,13 +7,14 @@ local function open_window(window)
 	local padding = string.rep(" ", (window.config.width - #win_text) / 2)
 	local text = padding .. win_text
 	vim.api.nvim_buf_set_lines(window.buff, 0, -1, false, { text })
+
 	for opt, value in pairs(window.opts) do
 		vim.api.nvim_set_option_value(opt, value, { buf = window.buff })
 	end
-	-- vim.keymap.set("n", "j", function()
-	-- 	M.down()
-	-- end, { buffer = window.buff })
-	vim.keymap.set("n", "k", function()
+	vim.keymap.set("n", "<S-TAB>", function()
+		M.down()
+	end, { buffer = window.buff })
+	vim.keymap.set("n", "<TAB>", function()
 		M.up()
 	end, { buffer = window.buff })
 	vim.keymap.set("n", "q", function()
@@ -53,13 +54,15 @@ M.toggle = function()
 	end
 end
 -- Nav
-M.up = function()
-	-- local current_win = vim.api.nvim_get_current_win()
-	local all_windows = vim.api.nvim_list_wins()
+M.down = function()
+	local current_win = vim.api.nvim_get_current_win()
+	print(current_win)
+	vim.api.nvim_set_current_win(current_win - 1)
+end
 
-	local url_win = config.url_field.win
-	if url_win and vim.api.nvim_win_is_valid(url_win) then
-		vim.api.nvim_set_current_win(url_win)
-	end
+M.up = function()
+	local current_win = vim.api.nvim_get_current_win()
+	print(current_win)
+	vim.api.nvim_set_current_win(current_win + 1)
 end
 return M
