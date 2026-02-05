@@ -1,9 +1,4 @@
-local width = math.floor(vim.o.columns * 0.8)
-local height = math.floor(vim.o.lines * 0.8)
-local col = math.floor((vim.o.columns - width) / 2)
-local row = math.floor((vim.o.lines - height) / 2)
-local quarter = 11
-
+local utils = require("nvim-api-client.utils")
 return {
 	get_win = {
 		win = nil,
@@ -16,9 +11,9 @@ return {
 			relative = "editor",
 			border = "rounded",
 			style = "minimal",
-			row = row,
-			col = col + 1,
-			width = quarter,
+			row = utils.row,
+			col = utils.col + 1,
+			width = utils.quarter,
 			height = 1,
 		},
 	},
@@ -33,9 +28,9 @@ return {
 			relative = "editor",
 			border = "rounded",
 			style = "minimal",
-			row = row,
-			col = col + quarter + 3,
-			width = quarter,
+			row = utils.row,
+			col = utils.col + utils.quarter + 3,
+			width = utils.quarter,
 			height = 1,
 		},
 	},
@@ -50,9 +45,9 @@ return {
 			relative = "editor",
 			border = "rounded",
 			style = "minimal",
-			row = row,
-			col = col + (quarter * 2) + 5,
-			width = quarter,
+			row = utils.row,
+			col = utils.col + (utils.quarter * 2) + 5,
+			width = utils.quarter,
 			height = 1,
 		},
 	},
@@ -67,9 +62,9 @@ return {
 			relative = "editor",
 			border = "rounded",
 			style = "minimal",
-			row = row,
-			col = col + (quarter * 3) + 7,
-			width = quarter,
+			row = utils.row,
+			col = utils.col + (utils.quarter * 3) + 7,
+			width = utils.quarter,
 			height = 1,
 		},
 	},
@@ -84,9 +79,9 @@ return {
 			relative = "editor",
 			border = "rounded",
 			style = "minimal",
-			row = row,
-			col = col + (quarter * 4) + 9,
-			width = quarter,
+			row = utils.row,
+			col = utils.col + (utils.quarter * 4) + 9,
+			width = utils.quarter,
 			height = 1,
 		},
 	},
