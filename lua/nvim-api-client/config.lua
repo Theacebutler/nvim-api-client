@@ -5,14 +5,15 @@ local row = math.floor((vim.o.lines - height) / 2)
 local quarter = 11
 local methods = require("nvim-api-client.methods")
 local windows = {
-	methods.delete_win,
+	methods.get_win,
 	methods.post_win,
 	methods.put_win,
-	methods.get_win,
+	methods.delete_win,
 	methods.patch_win,
 	background_win = {
 		win = nil,
 		buff = nil,
+		selectable = false,
 		opts = {
 			modifiable = false,
 		},
@@ -30,6 +31,7 @@ local windows = {
 	url = {
 		win = nil,
 		buff = nil,
+		selectable = false,
 		opts = {
 			modifiable = true,
 		},
@@ -47,6 +49,7 @@ local windows = {
 	display_method = {
 		win = nil,
 		buff = nil,
+		selectable = false,
 		text = "METHOD",
 		opts = {
 			modifiable = false,
@@ -65,6 +68,7 @@ local windows = {
 	prefix = {
 		win = nil,
 		buff = nil,
+		selectable = false,
 		text = "http://",
 		opts = {
 			modifiable = false,
@@ -83,6 +87,7 @@ local windows = {
 	url_field = {
 		win = nil,
 		buff = nil,
+		selectable = true,
 		opts = {
 			modifiable = true,
 		},
@@ -99,6 +104,7 @@ local windows = {
 	body = {
 		win = nil,
 		buff = nil,
+		selectable = true,
 		opts = {
 			modifiable = true,
 		},
