@@ -3,6 +3,7 @@ return {
 	get_win = {
 		win = nil,
 		buff = nil,
+		selectable = true,
 		text = "GET",
 		opts = {
 			modifiable = false,
@@ -20,6 +21,7 @@ return {
 	post_win = {
 		win = nil,
 		buff = nil,
+		selectable = true,
 		text = "POST",
 		opts = {
 			modifiable = false,
@@ -37,6 +39,7 @@ return {
 	put_win = {
 		win = nil,
 		buff = nil,
+		selectable = true,
 		text = "PUT",
 		opts = {
 			modifiable = false,
@@ -54,6 +57,7 @@ return {
 	delete_win = {
 		win = nil,
 		buff = nil,
+		selectable = true,
 		text = "DELETE",
 		opts = {
 			modifiable = false,
@@ -71,6 +75,7 @@ return {
 	patch_win = {
 		win = nil,
 		buff = nil,
+		selectable = true,
 		text = "PATCH",
 		opts = {
 			modifiable = false,
